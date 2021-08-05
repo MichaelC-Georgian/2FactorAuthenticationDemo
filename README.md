@@ -8,3 +8,10 @@
     <li>npm i mongoose</li>
     <li>npm i passport passport-local passport-local-mongoose express-session</li>
 </ul>
+<h2>Step Locations</h2>
+<p>Steps 1 and 2 are in app.js</p>
+<p>Steps 3 - 7 are in twoFactorAuth.js router </p>
+<p>There new files used are: in routes twoFactorAuth.js, in new folder twoFactorAuth: index.hbs, twoFactorSuccess.hsb, validateCode.hbs</p>
+<p>There are two new NPM modules used: 
+npm i speakeasy
+npm i node-qrcode</p>
