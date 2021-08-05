@@ -13,15 +13,6 @@ router.get('/', function (req, res, next) {
   });
 });
 
-/*
-
-STEP 1:
-DESCRIPTION
-
-*/
-
-
-
 
 // Middleware function to check if the current user is logged in.
 function IsLoggedIn(req, res, next) {

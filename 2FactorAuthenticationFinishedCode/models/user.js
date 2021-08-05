@@ -9,6 +9,7 @@ var schemaDefinition = {
     username: String,
     password: String,
     oauthId: String,
+    secretKey: String,
     oauthProvider: String,
     Create: Date
 };

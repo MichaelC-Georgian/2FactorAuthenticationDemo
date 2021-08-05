@@ -8,10 +8,14 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/globals');
 
+
+//STEP 1:
+var twoFactorAuthRouter = require('./routes/twoFactorAuth');
 var indexRouter = require('./routes/index');
 //Authentication
 const passport = require('passport');
 const session = require('express-session');
+
 
 var app = express();
 
@@ -43,7 +47,8 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+//STEP 2:
+app.use('/twoFactorAuth', twoFactorAuthRouter);
 app.use('/', indexRouter);
 
 // Connect to MongoDb
