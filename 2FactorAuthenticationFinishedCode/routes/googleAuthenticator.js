@@ -23,7 +23,7 @@ function IsLoggedIn(req, res, next) {
 //  A secret key is generated using the speakeasy NPM module.
 //   then a QR code is generated (Right now it's being generated as a URL)
 //   then the secretKey is saved with the User (currently this is not being encrypted or serialized, it is not a good idea to do this as it's less secure to save in plain text)
-//   all of this information is then passed to the twoFactorAuthView.
+//   all of this information is then passed to the googleAuthenticatorView.
 /* GET home page. */
 router.get('/', IsLoggedIn, function (req, res, next) {
         var encodedKey = speakeasy.generateSecret().base32;
@@ -42,7 +42,8 @@ router.get('/', IsLoggedIn, function (req, res, next) {
         User.findOneAndUpdate({
                 _id: req.user._id
             }, {
-                secretKey: encodedKey
+                secretKey: encodedKey,
+                twoFAMethod: "google"
             },
             function (error, success) {
                 if (error) {
@@ -52,7 +53,7 @@ router.get('/', IsLoggedIn, function (req, res, next) {
                 }
             });
         //Render the view passing user, qrimage, and the key
-        res.render('twoFactorAuth/index', {
+        res.render('googleAuthenticator/index', {
             user: req.user,
             qrImage: qrImage,
             key: encodedKey,
@@ -64,7 +65,7 @@ router.get('/', IsLoggedIn, function (req, res, next) {
 // ROUTES FOR VALIDATECODE ------------------------------------|
 // GET
 router.get('/validateCode', IsLoggedIn, (req, res, next) => {
-    res.render('twoFactorAuth/validateCode', {
+    res.render('googleAuthenticator/validateCode', {
         title: 'Add Recommendations',
         user: req.user
     });
@@ -83,10 +84,10 @@ router.post('/validateCode', (req, res, next) => {
                                             token: userToken});
     // verified is a boolean value
     if (verified) {
-        res.redirect('/twoFactorAuth/twoFactorSuccess');
+        res.redirect('/googleAuthenticator/twoFactorSuccess');
     }
     else {
-        res.redirect('/twoFactorAuth/validateCode');
+        res.redirect('/googleAuthenticator/validateCode');
     }
 });
 
@@ -94,7 +95,7 @@ router.post('/validateCode', (req, res, next) => {
 // ROUTES FOR ADD ------------------------------------|
 // GET
 router.get('/twoFactorSuccess', IsLoggedIn, (req, res, next) => {
-    res.render('twoFactorAuth/twoFactorSuccess', {
+    res.render('googleAuthenticator/twoFactorSuccess', {
         title: 'Two Factor Success',
         user: req.user
     });

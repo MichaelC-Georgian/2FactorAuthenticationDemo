@@ -9,9 +9,10 @@ var schemaDefinition = {
     username: String,
     password: String,
     oauthId: String,
-    secretKey: String,
     oauthProvider: String,
-    Create: Date
+    Create: Date,
+    secretKey: String,
+    twoFAMethod: String
 };
 
 var userSchema = new mongoose.Schema(schemaDefinition);

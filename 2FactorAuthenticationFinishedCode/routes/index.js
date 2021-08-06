@@ -88,6 +88,15 @@ router.get('/logout', (req, res, next) => {
   res.redirect('/login');
 });
 
+// STEP 8? 
+// We will probably include this in the starter file
+// ROUTES FOR ACCOUNT
+router.get('/account', IsLoggedIn, (req, res, next) => {
+  res.render('account', {
+    user: req.user
+  });
+});
+
 
 
 module.exports = router;

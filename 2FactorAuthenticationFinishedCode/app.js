@@ -10,7 +10,7 @@ const config = require('./config/globals');
 
 
 //STEP 1:
-var twoFactorAuthRouter = require('./routes/twoFactorAuth');
+var googleAuthenticatorRouter = require('./routes/googleAuthenticator');
 var indexRouter = require('./routes/index');
 //Authentication
 const passport = require('passport');
@@ -48,7 +48,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //STEP 2:
-app.use('/twoFactorAuth', twoFactorAuthRouter);
+app.use('/googleAuthenticator', googleAuthenticatorRouter);
 app.use('/', indexRouter);
 
 // Connect to MongoDb
