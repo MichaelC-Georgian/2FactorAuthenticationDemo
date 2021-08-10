@@ -4,12 +4,10 @@ const mongoose = require('mongoose');
 // 2) Inject authentication related functionality by injecting the passport module
 const plm = require('passport-local-mongoose');
 
-
+// PART 2.5: Add SecretKey and twoFAMethod to User Model
 var schemaDefinition = {
     username: String,
     password: String,
-    oauthId: String,
-    oauthProvider: String,
     Create: Date,
     secretKey: String,
     twoFAMethod: String

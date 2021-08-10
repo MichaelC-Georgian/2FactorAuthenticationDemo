@@ -22,12 +22,39 @@ function IsLoggedIn(req, res, next) {
   res.redirect('/login');
 }
 
+// Function to check if the current user has authenticated using 2 factor authentication
+function IsTwoFactorAuthenticated(req, res, next) {
+  if (req.user.twoFAMethod != null) {
+    // if two factor authentication IS set up check if user is authenticated
+    if (req.session.twoFAAuthenticated) {
+      // If user is authenticated allow access
+      return next();
+    } else {
+      // If user is not authenticated redirect to validate code page
+      res.redirect('/googleAuthenticator/validateCode');
+    }
+  } else {
+    // if two factor authentication IS NOT set up allow access
+    return next();
+  }
+}
+
 
 //ROUTES FOR LOGIN SUCCESS PAGE
-router.get('/loginSuccess', IsLoggedIn, function (req, res, next) {
+router.get('/loginSuccess', IsLoggedIn, IsTwoFactorAuthenticated, function (req, res, next) {
+
+    //This is added to tell the user if they have two factor set up or not.
+    var subtitle = '';
+    if (req.session.twoFAAuthenticated) {
+      subtitle = 'You have logged on with two factor authentication!';
+    } else {
+      subtitle = 'Your two factor authentication is not yet set up. ';
+    }
+
   res.render('loginSuccess', {
     title: 'Login Successful',
-    user: req.user
+    user: req.user,
+    subtitle: subtitle
   });
 });
 // ROUTES FOR LOGIN ---------------------------------|
@@ -48,7 +75,6 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login',
   failureMessage: 'Invalid Credentials'
 }));
-
 
 // ROUTES FOR REGISTER -----------------------------|
 // GET
@@ -75,8 +101,7 @@ router.post('/register', (req, res, next) => {
           res.redirect('/loginSuccess');
         });
       }
-    }
-  );
+    });
 });
 
 // ROUTES FOR LOGOUT
@@ -84,6 +109,7 @@ router.post('/register', (req, res, next) => {
 router.get('/logout', (req, res, next) => {
   // log user out
   req.logOut();
+  req.session.twoFAAuthenticated = false;
   // send user back to login page
   res.redirect('/login');
 });

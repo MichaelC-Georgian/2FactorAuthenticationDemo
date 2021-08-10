@@ -8,8 +8,6 @@ const plm = require('passport-local-mongoose');
 var schemaDefinition = {
     username: String,
     password: String,
-    oauthId: String,
-    oauthProvider: String,
     Create: Date
 };
 
