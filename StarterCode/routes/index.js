@@ -13,16 +13,6 @@ router.get('/', function (req, res, next) {
   });
 });
 
-/*
-
-STEP 1:
-DESCRIPTION
-
-*/
-
-
-
-
 // Middleware function to check if the current user is logged in.
 function IsLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
@@ -31,7 +21,10 @@ function IsLoggedIn(req, res, next) {
   res.redirect('/login');
 }
 
+// STEP 12: Middleware function to check if the current user has 2FA initialized and if they are verified 
 
+
+// STEP 13: Add new Middleware function after IsLoggedIn And add subtitle message
 //ROUTES FOR LOGIN SUCCESS PAGE
 router.get('/loginSuccess', IsLoggedIn, function (req, res, next) {
   res.render('loginSuccess', {
@@ -39,6 +32,7 @@ router.get('/loginSuccess', IsLoggedIn, function (req, res, next) {
     user: req.user
   });
 });
+
 // ROUTES FOR LOGIN ---------------------------------|
 // GET
 router.get('/login', (req, res, next) => {
@@ -97,6 +91,7 @@ router.get('/logout', (req, res, next) => {
   res.redirect('/login');
 });
 
+// STEP 11: Get Handler for account view 
 
 
 module.exports = router;

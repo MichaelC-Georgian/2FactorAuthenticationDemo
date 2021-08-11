@@ -8,6 +8,8 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/globals');
 
+// STEP 2: Require the googleAuthenticator router
+
 var indexRouter = require('./routes/index');
 //Authentication
 const passport = require('passport');
@@ -43,6 +45,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// STEP 3: have the App 'Use' the GoogleAuthenticator router
 
 app.use('/', indexRouter);
 

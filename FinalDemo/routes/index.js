@@ -31,7 +31,13 @@ function IsTwoFactorAuthenticated(req, res, next) {
       return next();
     } else {
       // If user is not authenticated redirect to validate code page
-      res.redirect('/googleAuthenticator/validateCode');
+      if (req.user.twoFAMethod == 'google') {
+        res.redirect('/googleAuthenticator/validateCode');
+      }
+      else if (req.user.twoFAMethod == 'TheOtherOne') {
+        res.redirect('/TheOtherOne/validateCode');
+      }
+      
     }
   } else {
     // if two factor authentication IS NOT set up allow access
@@ -48,7 +54,7 @@ router.get('/loginSuccess', IsLoggedIn, IsTwoFactorAuthenticated, function (req,
     if (req.session.twoFAAuthenticated) {
       subtitle = 'You have logged on with two factor authentication!';
     } else {
-      subtitle = 'Your two factor authentication is not yet set up. ';
+      subtitle = 'Your two factor authentication is not yet set up.';
     }
 
   res.render('loginSuccess', {
@@ -57,6 +63,7 @@ router.get('/loginSuccess', IsLoggedIn, IsTwoFactorAuthenticated, function (req,
     subtitle: subtitle
   });
 });
+
 // ROUTES FOR LOGIN ---------------------------------|
 // GET
 router.get('/login', (req, res, next) => {

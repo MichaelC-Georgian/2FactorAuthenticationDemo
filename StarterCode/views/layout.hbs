@@ -26,9 +26,8 @@
     <ul class="navbar-nav ml-auto">
       {{#if user}}
       <li class="nav-item">
-        <a class="nav-link" href="#">{{user.username}}</a>
+        <a class="nav-link" href="/account">{{user.username}}</a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" href="/logout">logout</a>
       </li>
@@ -42,7 +41,6 @@
       </li>
       {{/if}}
     </ul>
-
   </nav>
   <div>
       {{{body}}}

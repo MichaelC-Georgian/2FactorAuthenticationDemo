@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const config = require('./config/globals');
 
 
-//STEP 1:
+//STEP 2: 
 var googleAuthenticatorRouter = require('./routes/googleAuthenticator');
 var indexRouter = require('./routes/index');
 //Authentication
@@ -47,7 +47,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//STEP 2:
+// STEP 3: have the App 'Use' the GoogleAuthenticator router
 app.use('/googleAuthenticator', googleAuthenticatorRouter);
 app.use('/', indexRouter);
 
