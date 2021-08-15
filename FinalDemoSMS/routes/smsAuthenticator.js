@@ -22,32 +22,7 @@ const vonage = new Vonage({
     apiSecret: config.vonage.apiSecret
 });
 
-// Step 7a Create our router get method for our /verify page
-//Get handler to handle display of verify page
-router.get('/', IsLoggedIn , (req, res, next) => {
-    let messages = req.session.messages || [];
-    req.session.messages = [];
-    res.render('auth/verify', {
-        title: '2-Factor SMS Authentication',
-        messages: messages,
-        user: req.user
-    });
-});
-
-// Step 7b Create our router get method for our /check page
-//Get handler to handle display of check page
-router.get('/check',IsLoggedIn, (req, res, next) => {
-    let messages = req.session.messages || [];
-    req.session.messages = [];
-    res.render('loginSuccess', {
-        title: '',
-        messages: messages,
-        user: req.user,
-        request_id: req.body.request_id
-    });
-});
-
-//Step 5: create a verify post method
+// Step 5: create a verify post method
 router.post('/verify',IsLoggedIn, (req, res) => {
     //Makes a request for a verification code, it provides the api with the
     // users phone number, the apps brand, and a workflow ID.
@@ -75,7 +50,7 @@ router.post('/verify',IsLoggedIn, (req, res) => {
     })
 });
 
-//Step 6 create a check post method
+// Step 6 create a check post method
 router.post('/check',IsLoggedIn,(req, res, next) =>{
     //Check the request ID against the received code, if its a match, continue, if not, throw errors
     vonage.verify.check({
@@ -91,6 +66,31 @@ router.post('/check',IsLoggedIn,(req, res, next) =>{
         }
     });
 })
+
+// Step 7a Create our router get method for our /verify page
+//Get handler to handle display of verify page
+router.get('/', IsLoggedIn , (req, res, next) => {
+    let messages = req.session.messages || [];
+    req.session.messages = [];
+    res.render('auth/verify', {
+        title: '2-Factor SMS Authentication',
+        messages: messages,
+        user: req.user
+    });
+});
+
+// Step 7b Create our router get method for our /check page
+//Get handler to handle display of check page
+router.get('/check',IsLoggedIn, (req, res, next) => {
+    let messages = req.session.messages || [];
+    req.session.messages = [];
+    res.render('loginSuccess', {
+        title: '',
+        messages: messages,
+        user: req.user,
+        request_id: req.body.request_id
+    });
+});
 
 //Step 8 Create an addPhone post method to handle updating users phone numbers to enable 2fa
 router.post('/addPhone',IsLoggedIn, (req, res, next) => {

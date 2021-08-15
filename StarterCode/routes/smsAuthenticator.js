@@ -14,7 +14,6 @@ function IsLoggedIn(req, res, next) {
 // Step 3: Add the require statement for @vonage/server-sdk and for our globals file
 
 
-
 // Step 4: create a Vonage object with your apiKey and apiSecret
 
 
@@ -32,7 +31,6 @@ function IsLoggedIn(req, res, next) {
 
 
 // Step 7b Create our router get method for our /check page
-
 
 
 // Step 8 Create an addPhone post method to handle updating users phone numbers to enable 2fa

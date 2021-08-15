@@ -84,7 +84,9 @@ router.post('/register', (req, res, next) => {
 router.get('/logout', (req, res, next) => {
   // log user out
   req.logOut();
+
   // Step 9 Set our 2fa session value to false.
+
 
   // send user back to login page
   res.redirect('/login');

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // 2) Inject authentication related functionality by injecting the passport module
 const plm = require('passport-local-mongoose');
 
-// PART 1 Google Auth: Add SecretKey and twoFAMethod to User Model
+// Schema definition which includes a phone number for our 2FA method
 var schemaDefinition = {
     username: String,
     password: String,
