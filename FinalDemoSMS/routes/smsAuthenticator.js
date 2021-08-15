@@ -78,8 +78,6 @@ router.post('/verify',IsLoggedIn, (req, res) => {
 //Step 6 create a check post method
 router.post('/check',IsLoggedIn,(req, res, next) =>{
     //Check the request ID against the received code, if its a match, continue, if not, throw errors
-    console.log(req.body.requestId);
-    console.log(req.body.code);
     vonage.verify.check({
         request_id: req.body.requestId,
         code: req.body.code
