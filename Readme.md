@@ -43,7 +43,7 @@ Once you switch to their paid service it allows for other numbers to be reached.
 Differences between this and Connor's 2FA method:
 <ul>
 <li>The above instructions.</li>
-<li>Added cookie: {secure:false} to our session definition in app.js. Setting it to true is more secure but requires an HTTPS environment.</li>
+<li>Added "cookie: {secure:false}" to our session definition in app.js. Setting it to true is more secure but requires an HTTPS environment.</li>
 <li>Comments and HTML content changed to reflect different environment.</li>
 <li>Added phonenumber to the users model as phone.</li>
 <li>Added phonenumber parameter to registration.</li>
