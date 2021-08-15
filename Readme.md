@@ -4,7 +4,7 @@ Once you switch to their paid service it allows for other numbers to be reached.
 
 <h2>Step by Step Guide:</h2>
 
-<h3>GLOBALS.js SETUP**
+<h3>GLOBALS.js SETUP**</h3>
 
 **Step 1:** Setup globals.js by registering at https://dashboard.nexmo.com/ and then take include your apiKey, apiSecret, and mongoDB connection string.
 
