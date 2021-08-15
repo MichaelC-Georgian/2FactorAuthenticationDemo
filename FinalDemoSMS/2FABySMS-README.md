@@ -20,8 +20,6 @@ Step 8: Create an addPhone post method to handle updating users phone numbers
 Step 9: Set our 2fa session value to false in our router.get logout method in index.js 
 
 
-***Steps to do: Add verify, check, and cancel post handlers
-
 
 Changes:
 Added phonenumber to the users model.
