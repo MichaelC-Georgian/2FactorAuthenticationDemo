@@ -50,7 +50,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //Use the routers
 app.use('/', indexRouter);
-app.use('/auth', authRouter)
+app.use('/auth', authRouter);
 
 // Connect to MongoDb
 mongoose.connect(config.db, {

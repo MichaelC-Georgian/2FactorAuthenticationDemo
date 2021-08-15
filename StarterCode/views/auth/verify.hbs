@@ -1,0 +1,30 @@
+{{#unless user.phone}}
+    <div class="alert alert-danger">
+        <p>It appears you haven't set up 2FA via SMS yet, please fill out the following form</p>
+    </div>
+    <form method="post" action="/auth/addPhone">
+        <fieldset class="form-group">
+            <label for="phone" class="col-2 control-label">Phone number: *</label>
+            <input name="phone" id="phone" type="tel" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="1-705-999-9999" required/>
+        </fieldset>
+        <fieldset class="form-group">
+        <button type="submit" class="btn btn-info offset-2">Submit</button>
+        </fieldset>
+    </form>
+{{else}}
+    {{#if message}}
+    <div class="alert alert-danger">
+        <p>{{message}}</p>
+    </div>
+    {{/if}}
+    <form method="post" action="/auth/verify">
+        <fieldset class="form-group">
+            <input name="phone" id="phone" type="hidden" value="{{user.phone}}" required />
+            <input name="requestID" id="requestID" type="hidden" value="{{result.result_id}}" required />
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="submit" class="col-2 control-label">Send verification code</label>
+            <button type="submit" class="btn btn-info">Request</button>
+        </fieldset>
+    </form>
+{{/unless}}

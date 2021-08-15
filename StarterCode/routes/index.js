@@ -85,9 +85,7 @@ router.get('/logout', (req, res, next) => {
   // log user out
   req.logOut();
   // Step 9 Set our 2fa session value to false.
-  // Unsets the session's twoFAAuthenticated value so that the session is
-  //no longer considered authenticated by 2fa
-  req.session.twoFAAuthenticated = false;
+
   // send user back to login page
   res.redirect('/login');
 

@@ -23,7 +23,6 @@ const vonage = new Vonage({
 });
 
 // Step 7a Create our router get method for our /verify page
-
 //Get handler to handle display of verify page
 router.get('/', IsLoggedIn , (req, res, next) => {
     let messages = req.session.messages || [];
@@ -89,14 +88,13 @@ router.post('/check',IsLoggedIn,(req, res, next) =>{
            console.log(err);
            res.render('auth/verify', {message: 'Wrong code, please reattempt.', user: req.user});
         } else { //If everything is fine, send the user to the login success page enable the 2fa flag for their login session
-            //Step 7:
             req.session.twoFAAuthenticated = true;
             res.redirect('/loginSuccess');
         }
     });
 })
 
-//Step 7 Create a addPhone post method to handle updating users phone numbers to enable 2fa
+//Step 8 Create an addPhone post method to handle updating users phone numbers to enable 2fa
 router.post('/addPhone',IsLoggedIn, (req, res, next) => {
     User.findOneAndUpdate({_id: req.user._id },{
         phone: req.body.phone
