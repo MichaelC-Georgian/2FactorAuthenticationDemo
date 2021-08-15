@@ -48,6 +48,8 @@ Added authRouter to app.js and used it.
 
 Our in class express login lessons
 
+https://github.com/ConnorWatsonGitHub/2FactorAuthenticationDemo
+
 https://codeburst.io/how-to-add-two-factor-authentication-with-node-js-and-express-7cad30aac4c
 
 https://dashboard.nexmo.com/getting-started/verify
