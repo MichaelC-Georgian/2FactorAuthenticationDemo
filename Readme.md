@@ -7,9 +7,13 @@ GLOBALS.js SETUP
 
 Step 1: Setup globals.js by registering at https://dashboard.nexmo.com/ and then take include your apiKey, apiSecret, and mongoDB connection string.
 
+
+
 DEPENDENCY SETUP
 
 Step 2: Install the library with "npm install @vonage/server-sdk".
+
+
 
 SMSAUTHENTICATOR.js SETUP
 
@@ -24,6 +28,8 @@ Step 6: Create our /check POST method in smsAuthenticator.js and set our 2fa ses
 Step 7: Create our GET methods for /verify and /check in smsAuthenticator.js
 
 Step 8: Create our addPhone POST method to handle updating users phone numbers in smsAuthenticator.js
+
+
 
 INDEX.js SETUP
 
