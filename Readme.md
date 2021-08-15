@@ -2,6 +2,7 @@ Must Read: With the free version of nexmo/vonage, only the phone number that is 
 Once you switch to their paid service it allows for other numbers to be reached.
 
 ------- Step by Step Guide: ------- 
+
 GLOBALS.js SETUP
 
 Step 1: Setup globals.js by registering at https://dashboard.nexmo.com/ and then take include your apiKey, apiSecret, and mongoDB connection string.
@@ -45,7 +46,9 @@ Added authRouter to app.js and used it.
 
 ------- References: ------- 
 
-Our in class express login lessons:
+Our in class express login lessons
+
 https://codeburst.io/how-to-add-two-factor-authentication-with-node-js-and-express-7cad30aac4c
+
 https://dashboard.nexmo.com/getting-started/verify
 
