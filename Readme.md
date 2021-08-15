@@ -1,21 +1,21 @@
 Must Read: With the free version of nexmo/vonage, only the phone number that is registered to the apiKey can be contacted. 
 Once you switch to their paid service it allows for other numbers to be reached.
 
-------- Step by Step Guide: ------- 
+------- **Step by Step Guide:** ------- 
 
-GLOBALS.js SETUP
+**GLOBALS.js SETUP**
 
 Step 1: Setup globals.js by registering at https://dashboard.nexmo.com/ and then take include your apiKey, apiSecret, and mongoDB connection string.
 
 
 
-DEPENDENCY SETUP
+**DEPENDENCY SETUP**
 
 Step 2: Install the library with "npm install @vonage/server-sdk".
 
 
 
-SMSAUTHENTICATOR.js SETUP
+**SMSAUTHENTICATOR.js SETUP**
 
 Step 3: Add the require statement for @vonage/server-sdk and for our globals file in smsAuthenticator.js
 
@@ -31,14 +31,14 @@ Step 8: Create our addPhone POST method to handle updating users phone numbers i
 
 
 
-INDEX.js SETUP
+**INDEX.js SETUP**
 
 Step 9: Set our 2fa session value to false in our router.get logout method in index.js 
 
 
 
 
-------- Additional Information: -------
+------- **Additional Information** -------
 
 Differences between this and Connor's 2FA method:
 
@@ -50,7 +50,7 @@ Changed globals config to personal DB from Connors.
 Added authRouter to app.js and used it.
 
 
-------- References: ------- 
+------- **References** ------- 
 
 Our in class express login lessons
 
