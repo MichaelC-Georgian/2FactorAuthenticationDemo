@@ -1,0 +1,16 @@
+<br>
+{{#if message}}
+<div class="alert alert-danger">
+    <p>{{message}}</p>
+</div>
+{{/if}}
+<form method="post" action="/auth/check">
+    <fieldset class="form-group">
+        <label for="code" class="col-2 control-label">Code: *</label>
+        <input name="code" id="code" type="text" required/>
+        <input name="requestId" id="requestId" type="hidden" value="{{requestId}}" required/>
+    </fieldset>
+    <fieldset class="form-group">
+        <button type="submit" class="btn btn-info offset-2">Submit</button>
+    </fieldset>
+</form>
