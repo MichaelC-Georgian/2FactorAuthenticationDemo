@@ -4,19 +4,19 @@ Once you switch to their paid service it allows for other numbers to be reached.
 
 <h2>Step by Step Guide:</h2>
 
-<h3>GLOBALS.js SETUP**</h3>
+<h3>globals.js setup</h3>
 
 **Step 1:** Setup globals.js by registering at https://dashboard.nexmo.com/ and then take include your apiKey, apiSecret, and mongoDB connection string.
 
 
 
-<h3>DEPENDENCY SETUP</h3>
+<h3>dependancy setup</h3>
 
 **Step 2**: Install the library with "npm install @vonage/server-sdk" and the other dependancies with "npm install".
 
 
 
-<h3>SMSAUTHENTICATOR.js SETUP</h3>
+<h3>smsAuthenticator.js setup</h3>
 
 **Step 3**: Add the require statement for @vonage/server-sdk and for our globals file in smsAuthenticator.js
 
@@ -32,7 +32,7 @@ Once you switch to their paid service it allows for other numbers to be reached.
 
 
 
-<h3>INDEX.js SETUP</h3>
+<h3>index.js setup</h3>
 
 **Step 9:** Set our 2fa session value to false in our router.get logout method in index.js 
 
@@ -41,14 +41,15 @@ Once you switch to their paid service it allows for other numbers to be reached.
 <h2>Additional Information</h2>
 
 Differences between this and Connor's 2FA method:
-The above instructions.
-Added cookie: {secure:false} to our session definition in app.js. Setting it to true is more secure but requires an HTTPS environment.
-Comments and HTML content changed to reflect different environment.
-Added phonenumber to the users model as phone.
-Added phonenumber parameter to registration.
-Changed globals config to personal DB from Connors.
-Added authRouter to app.js and used it.
-
+<ul>
+<li>The above instructions.</li>
+<li>Added cookie: {secure:false} to our session definition in app.js. Setting it to true is more secure but requires an HTTPS environment.</li>
+<li>Comments and HTML content changed to reflect different environment.</li>
+<li>Added phonenumber to the users model as phone.</li>
+<li>Added phonenumber parameter to registration.</li>
+<li>Changed globals config to personal DB from Connors.</li>
+<li>Added authRouter to app.js and used it.</li>
+</ul>
 
 <h2>References</h2>
 
