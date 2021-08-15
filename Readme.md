@@ -1,6 +1,7 @@
 <h1>2 Factor Authentication with SMS and TTS</h1>
-<h4>Must Read:</h4> With the free version of nexmo/vonage, only the phone number that is registered to the apiKey can be contacted. 
-Once you switch to their paid service it allows for other numbers to be reached.
+<h4>Must Read:</h4> 
+With the free version of nexmo/vonage, only the phone number that is registered to the apiKey can be contacted. 
+Once you switch to their paid service it allows for other numbers to be reached. 
 
 <h2>Step by Step Guide:</h2>
 
