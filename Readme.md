@@ -13,7 +13,7 @@ Once you switch to their paid service it allows for other numbers to be reached.
 
 <h3>dependancy setup</h3>
 
-**Step 2**: Install the library with "npm install @vonage/server-sdk" and the other dependancies with "npm install".
+**Step 2**: Change directories to your StarterCode ("cd StarterCode" from the "2FactorAuthenticationDemo" folder) and Install the library with "npm install @vonage/server-sdk" and the other dependancies with "npm install".
 
 
 
@@ -37,13 +37,14 @@ Once you switch to their paid service it allows for other numbers to be reached.
 
 **Step 9:** Set our 2fa session value to false in our router.get logout method in index.js 
 
+**Step 10:** You're done! Register an account on your website, then setup 2 factor authentication via SMS. Once you've signed in and entered your 2FA code, you'll be redirected to a congratulations screen. 
 
 
 <h2>Additional Information</h2>
 
 Differences between this and Connor's 2FA method:
 <ul>
-<li>The above instructions.</li>
+<li>The above instructions and related video content.</li>
 <li>Added "cookie: {secure:false}" to our session definition in app.js. Setting it to true is more secure but requires an HTTPS environment.</li>
 <li>Comments and HTML content changed to reflect different environment.</li>
 <li>Added phonenumber to the users model as phone.</li>
